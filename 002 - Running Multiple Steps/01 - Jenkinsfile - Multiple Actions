@@ -5,5 +5,17 @@ pipeline {
 		}
 	}
     stages {
+    	stage("first stage"){
+	 steps{
+		call("text1.txt")
+		sh 'sleep 10s'
+		call("text2.txt")
+	  }
+	}
     }
+}
+
+def call(filename) {
+    sh "date > $filename"
+    sh "cat text.txt"
 }
