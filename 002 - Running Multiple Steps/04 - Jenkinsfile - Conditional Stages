@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('build') {
 	     when {
-                expression { params.stageChoice != 'build' }
+                expression { params.stageChoice == 'build' }
             }
             steps {
                echo "Build"
@@ -18,7 +18,7 @@ pipeline {
         }
 	 stage('test') {
 	   when {
-                expression { params.stageChoice != 'test' }
+                expression { params.stageChoice == 'test' }
             }
             steps {
                echo "Test"
