@@ -4,6 +4,25 @@ pipeline {
 			image 'alpine:latest' 
 		}
 	}
+	parameters { 
+	choice(name: 'stageChoice', choices: ['build', 'test'], description: 'Select the stage to exclude')
+	}
     stages {
+        stage('build') {
+	     when {
+                expression { params.stageChoice == 'build' }
+            }
+            steps {
+               echo "Build"
+            }
+        }
+	 stage('test') {
+	   when {
+                expression { params.stageChoice == 'test' }
+            }
+            steps {
+               echo "Test"
+            }
+        }
     }
 }

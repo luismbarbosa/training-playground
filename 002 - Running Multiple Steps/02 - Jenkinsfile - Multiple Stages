@@ -5,5 +5,20 @@ pipeline {
 		}
 	}
     stages {
+    	stage("Build"){
+	 steps{
+		createFileAndPrint("text1.txt")
+	  }
+	}
+	stage("test"){
+	 steps{
+		sh "grep 2019 text1.txt || echo false"
+	  }
+	}
     }
+}
+
+def createFileAndPrint(filename = 'error') {
+    sh "date > $filename"
+    sh "cat $filename"
 }

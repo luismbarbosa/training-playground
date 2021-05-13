@@ -11,4 +11,20 @@ pipeline {
             }
         }
     }
+    post {
+    	always{
+		script{ echo "Always"
+		}
+	}
+	success{
+	script {
+        echo "Success"
+      }
+	}
+	failure {
+      script {
+      	echo "Failure"
+      }
+      }
+    }
 }

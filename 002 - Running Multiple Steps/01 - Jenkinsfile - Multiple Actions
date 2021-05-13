@@ -5,5 +5,17 @@ pipeline {
 		}
 	}
     stages {
+    	stage("first stage"){
+	 steps{
+		createFileAndPrint("text1.txt")
+		sh 'sleep 10s'
+		createFileAndPrint("text2.txt")
+	  }
+	}
     }
+}
+
+def createFileAndPrint(filename = 'error') {
+    sh "date > $filename"
+    sh "cat $filename"
 }
