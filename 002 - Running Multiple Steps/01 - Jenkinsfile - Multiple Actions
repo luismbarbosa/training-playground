@@ -17,5 +17,5 @@ pipeline {
 
 def createFileAndPrint(filename = 'error') {
     sh "date > $filename"
-    sh "cat text.txt"
+    sh "cat $filename"
 }
