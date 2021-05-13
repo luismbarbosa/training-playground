@@ -2,8 +2,8 @@ pipeline {
     agent none
     stages {
         stage('Maven') {
-            agent { 
-                docker { 
+            agent {
+                docker {
                     image 'maven:3.3.3'
                 }
             }
@@ -15,7 +15,7 @@ pipeline {
         stage('Node') {
             agent { 
                 docker { 
-                    image image 'node:6.3'
+                    image 'node:6.3'
                 }
             }
             steps {
