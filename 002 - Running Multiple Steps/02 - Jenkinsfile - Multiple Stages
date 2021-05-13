@@ -12,7 +12,7 @@ pipeline {
 	}
 	stage("test"){
 	 steps{
-		sh "grep 2019 text1.txt || echo true"
+		sh "grep 2019 text1.txt || echo false"
 	  }
 	}
     }
