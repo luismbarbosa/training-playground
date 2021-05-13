@@ -21,7 +21,7 @@ pipeline {
                 expression { params.stageChoice != 'test' }
             }
             steps {
-               echo "Build"
+               echo "Test"
             }
         }
     }
