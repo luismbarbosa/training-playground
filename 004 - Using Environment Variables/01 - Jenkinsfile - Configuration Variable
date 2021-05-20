@@ -4,10 +4,17 @@ pipeline {
 			image 'alpine:latest' 
 		}
 	}
+    environment{
+    NOTIFICATION_EMAIL = "sdss@cenas.com"
+    }
     stages {
         stage('build') {
             steps {
                 echo "$NOTIFICATION_EMAIL"
+                script{
+                    echo "env.NOTIFICATION_EMAIL"
+                }
+                
             }
         }
     }
