@@ -2,5 +2,27 @@ pipeline {
     agent { 
 	}
     stages {
+        stage('Maven') {
+            agent {
+                dockerfile {
+                    filename '04 - Dockerfile mvn'
+                    dir '003 - Defining Execution Environments'
+                }
+            }
+            steps {
+                sh 'mvn --version'
+            }
+        }
+        stage('Node') {
+            agent { 
+                dockerfile {
+                    filename '04 - Dockerfile npm'
+                    dir '003 - Defining Execution Environments'
+                }
+            }
+            steps {
+                sh 'npm --version'
+            }
+        }
     }
 }
