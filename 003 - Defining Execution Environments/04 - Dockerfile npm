@@ -1,2 +1,1 @@
-FROM alpine:latest
-RUN apk add npm
+FROM node:6.3

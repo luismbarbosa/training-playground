@@ -1,2 +1,1 @@
-FROM alpine:latest
-RUN apk add mvn
+FROM maven:3.3.3
