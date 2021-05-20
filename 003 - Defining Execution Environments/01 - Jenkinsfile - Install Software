@@ -1,13 +1,14 @@
 pipeline {
     agent { 
 		docker { 
-			image 'alpine:latest' 
+			image 'alpine:latest'
 		}
 	}
     stages {
         stage('build') {
             steps {
             	sh "echo 'You need to install curl'"
+                sh "apt get curl"
                 sh "curl www.google.com"
             }
         }
