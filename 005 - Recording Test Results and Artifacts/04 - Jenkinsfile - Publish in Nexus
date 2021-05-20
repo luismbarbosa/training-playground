@@ -15,9 +15,7 @@ pipeline {
         stage('deploy nexus') {
             steps {
                 configFileProvider([configFile(fileId: "settings.xml", targetLocation: 'settings-copy.xml')]){
-                    sh "mvn deploy:deploy-file -s settings-copy.xml 
-                        -Durl=http://nexus:8081/repository/maven-releases/ 
-                        -Dfile='005 - Recording Test Results and Artifacts/02 - Java Unit Tests7target/java-app-1.0.0.jar'"
+                    sh "mvn deploy:deploy-file -s settings-copy.xml -Durl=http://nexus:8081/repository/maven-releases/ -Dfile='005 - Recording Test Results and Artifacts/02 - Java Unit Tests7target/java-app-1.0.0.jar'"
                 }
             }
         }
