@@ -17,7 +17,7 @@ pipeline {
                 script {
                 	def buildConfigs = readJSON text: env.PROPS
                 	buildConfigs.each{ buildConfig ->
-                        stage($buildConfig.name){
+                        stage(buildConfig.name){
                                 sh "$buildConfig.command"
                         }
 					}
