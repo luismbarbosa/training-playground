@@ -11,4 +11,15 @@ pipeline {
             }
         }
     }
+      post {
+        always {
+          script{
+            echo "-- send email"
+            emailext (to: "luis.silva.barbosa@celfocus.com",
+              subject: "jenkins test",
+              body: 'Olá mundo'
+            )
+          }
+        }
+      }
 }
