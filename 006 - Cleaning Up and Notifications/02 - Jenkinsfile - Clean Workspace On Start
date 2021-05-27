@@ -7,8 +7,16 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh ""
+                sh "ls -lta"
+                cleanWs()
+                sh "echo 'this text' > text.txt"
+                sh "ls -lta"
             }
+        }
+    }
+    post{
+        always{
+            echo "success"
         }
     }
 }
