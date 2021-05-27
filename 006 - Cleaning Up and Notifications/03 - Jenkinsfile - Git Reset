@@ -1,13 +1,22 @@
 pipeline {
     agent { 
-		docker { 
-			image 'alpine:latest' 
-		}
+		dockerfile {
+            filename '03 - Jenkinsfile - Git Reset'
+            dir '006 - Cleaning Up and Notifications'
+        }
 	}
     stages {
         stage('build') {
             steps {
-                sh ""
+                sh "ls -lta"
+                sh "echo 'this text' > text.txt"
+                sh "ls -lta"
+            }
+        }
+        stage('reset') {
+            steps {
+                sh "git reset --soft HEAD"
+                sh "ls -a"
             }
         }
     }
